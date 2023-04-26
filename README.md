@@ -2,7 +2,7 @@
 Simple script fix to get Hearthstone working on Linux
 
 # Usage
-Simply paste your install path to:
+Simply paste your LocationAPI.dll install path:
 ```
 .../Program Files (x86)/Hearthstone/Hearthstone_Data/Plugins/x86/LocationAPI.dll
 ```
@@ -12,5 +12,7 @@ into
 
 # Why?
 Game crashes when file is present and constantly redownloads it upon relaunch. This script checks if battlenet is open, and deletes the file if present, fixing the issue.
+
+ALLOW LINUX NATIVE PORTS
 
 
