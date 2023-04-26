@@ -1,13 +1,16 @@
 import os
 import subprocess
 import psutil
+import time
+from pyfiglet import figlet_format
+
+SLEEP_TIME = 5
 
 with open("filepath.txt") as f:
      locationAPI_file_path = f.read()
 
 def get_pid():
-    PID = subprocess.run(["pgrep", "CrBrowserMain"], capture_output= True)
-    PID = ((PID.stdout).decode("utf-8")).strip()
+    PID = ((subprocess.run(["pgrep", "CrBrowserMain"], capture_output= True).stdout).decode("utf-8")).strip()
     if not PID:
          return False
     else:
@@ -20,27 +23,28 @@ def check_pid(PID):
         return False
     
 def check_for_file(file_path):
-    check_file = os.path.isfile(file_path)
-    return check_file
+    return (check_file := os.path.isfile(file_path))
 
 def delete_file():
         os.remove(locationAPI_file_path)
         return
    
+
+
 def main():
     PID = get_pid()
-    if PID == False:
-         print("PID Error: pgrep could not find a battlenet instance")
-         pass
-    else:
-        print(f"Battlenet is open: {check_pid(PID)}")
-        print(f"LocationAPI.dll exists: {check_for_file(locationAPI_file_path)}")
-        if check_for_file(locationAPI_file_path):
-            delete_file()
-            print("File Deleted")
+    while check_pid(PID):
+        if check_for_file(locationAPI_file_path) == False:
+            print("File not found, restarting...")
+            time.sleep(SLEEP_TIME);main()
         else:
-            print("File doesn't exist, no action taken.")
+            os.remove(locationAPI_file_path)
+            print("File removed");exit()
+    else:
+        print("Battlenet process not running, restarting...")
+
 
 
 if __name__ == "__main__":
+    print(figlet_format("rm-locationAPI-HS"))
     main()
