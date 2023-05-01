@@ -6,7 +6,7 @@ from pyfiglet import figlet_format
 
 SLEEP_TIME = 5
 
-with open("filepath.txt") as f:
+with open("data/filepath.txt") as f:
      locationAPI_file_path = f.read()
 
 def get_pid():
