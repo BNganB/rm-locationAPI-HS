@@ -41,7 +41,7 @@ def main():
             os.remove(locationAPI_file_path)
             print("File removed");exit()
     else:
-        print("Battlenet process not running, restarting...")
+        print("Battlenet process not running, restarting...");time.sleep(SLEEP_TIME);main()
 
 
 
