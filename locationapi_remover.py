@@ -35,7 +35,7 @@ def delete_file():
 ## open bnet if not open already
 
 def open_battlenet():
-    subprocess.call(f"wine {bnet_location}");time.sleep()
+    subprocess.call(f"wine {bnet_location}");time.sleep(SLEEP_TIME)
 
 
 def main():
@@ -48,9 +48,7 @@ def main():
             os.remove(locationAPI_file_path)
             print("File removed");exit()
     else:
-        print("Battlenet process not running, attempting to open...")
-        open_battlenet()
-        main()
+        print("Battlenet process not running, attempting to open...");open_battlenet();main()
 
 
 ## add os.open function to open bnet in wine if process not found. reduce clicks
