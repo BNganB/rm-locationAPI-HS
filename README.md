@@ -10,6 +10,10 @@ into
 
 >filepath.txt
 
+And do the same for your Battle.net.exe
+
+>bnet_local_path.txt
+
 # Why?
 Game crashes when file is present and constantly redownloads it upon relaunch. This script checks if battlenet is open, and deletes the file if present, fixing the issue.
 
