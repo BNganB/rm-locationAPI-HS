@@ -53,6 +53,8 @@ def main():
         main()
 
 
+## add os.open function to open bnet in wine if process not found. reduce clicks
+
 
 if __name__ == "__main__":
     print(figlet_format("rm-locationAPI-HS"))

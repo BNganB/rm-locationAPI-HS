@@ -1,5 +1,5 @@
 # rm-locationAPI-HS
-Simple script fix to get Hearthstone working on Linux
+Simple script fix to get Hearthstone working on Linux via Wine/Lutris
 
 # Usage
 Simply paste your LocationAPI.dll install path:
