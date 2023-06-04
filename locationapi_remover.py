@@ -6,8 +6,11 @@ from pyfiglet import figlet_format
 
 SLEEP_TIME = 5
 
-with open("data/filepath.txt") as f:
+with open("data/brad_local_path.txt") as f:
      locationAPI_file_path = f.read()
+
+with open("data/bnet_local_path.txt") as g:
+    bnet_location = g.read()
 
 def get_pid():
     PID = ((subprocess.run(["pgrep", "CrBrowserMain"], capture_output= True).stdout).decode("utf-8")).strip()
@@ -29,6 +32,10 @@ def delete_file():
         os.remove(locationAPI_file_path)
         return
    
+## open bnet if not open already
+
+def open_battlenet():
+    subprocess.call(f"wine {bnet_location}");time.sleep()
 
 
 def main():
@@ -41,7 +48,9 @@ def main():
             os.remove(locationAPI_file_path)
             print("File removed");exit()
     else:
-        print("Battlenet process not running, restarting...");time.sleep(SLEEP_TIME);main()
+        print("Battlenet process not running, attempting to open...")
+        open_battlenet()
+        main()
 
 
 
