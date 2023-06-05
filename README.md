@@ -2,19 +2,12 @@
 Simple script fix to get Hearthstone working on Linux via Wine/Lutris
 
 # Usage
-Simply paste your LocationAPI.dll install path:
+Simply run the script on the same drive you have Heartstone installed on.
+```bash
+python3 locationapi_remover.py
 ```
-.../Program Files (x86)/Hearthstone/Hearthstone_Data/Plugins/x86/LocationAPI.dll
-```
-into
-
->filepath.txt
-
-And do the same for your Battle.net.exe
-
->bnet_local_path.txt
 
 # Why?
-Game crashes when file is present and constantly redownloads it upon relaunch. This script checks if battlenet is open, and deletes the file if present, fixing the issue.
+Game crashes when file is present and constantly redownloads it upon relaunch. This script checks if battlenet is open, and deletes the file if present, fixing the issue upon every launch.
 
 
