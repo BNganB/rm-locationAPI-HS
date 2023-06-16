@@ -20,8 +20,8 @@ global locationAPI_file_path
 global bnet_location
 
 def set_file_paths():
-    bnet_location = glob.glob("**/Battle.net Launcher.exe", recursive=True)
-    locationAPI_file_path = glob.glob("**/LocationAPI.dll", recursive=True)
+    bnet_location = glob.glob("**/Battle.net Launcher.exe", recursive=True)[0]
+    locationAPI_file_path = glob.glob("**/LocationAPI.dll", recursive=True)[0]
 
 
 def get_pid():
